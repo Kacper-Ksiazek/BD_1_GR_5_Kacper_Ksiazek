@@ -1,0 +1,12 @@
+Hash Join  (cost=183.14..1302.41 rows=279 width=44) (actual time=0.123..4.807 rows=486 loops=1)
+  Hash Cond: (soh.customerid = c.customerid)
+  ->  Seq Scan on salesorderheader soh  (cost=0.00..1036.65 rows=31465 width=32) (actual time=0.006..1.537 rows=31465 loops=1)
+  ->  Hash  (cost=180.94..180.94 rows=176 width=16) (actual time=0.108..0.109 rows=176 loops=1)
+        Buckets: 1024  Batches: 1  Memory Usage: 16kB
+        ->  Bitmap Heap Scan on customer c  (cost=5.65..180.94 rows=176 width=16) (actual time=0.041..0.088 rows=176 loops=1)
+              Recheck Cond: (territoryid = 5)
+              Heap Blocks: exact=24
+              ->  Bitmap Index Scan on idx_territoryid  (cost=0.00..5.61 rows=176 width=0) (actual time=0.034..0.034 rows=176 loops=1)
+                    Index Cond: (territoryid = 5)
+Planning Time: 2.685 ms
+Execution Time: 4.865 ms

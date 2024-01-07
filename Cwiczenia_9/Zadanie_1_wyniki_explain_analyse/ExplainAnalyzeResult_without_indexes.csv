@@ -1,0 +1,10 @@
+Hash Join  (cost=415.95..1535.22 rows=279 width=44) (actual time=1.235..6.236 rows=486 loops=1)
+  Hash Cond: (soh.customerid = c.customerid)
+  ->  Seq Scan on salesorderheader soh  (cost=0.00..1036.65 rows=31465 width=32) (actual time=0.008..1.671 rows=31465 loops=1)
+  ->  Hash  (cost=413.75..413.75 rows=176 width=16) (actual time=1.218..1.218 rows=176 loops=1)
+        Buckets: 1024  Batches: 1  Memory Usage: 16kB
+        ->  Seq Scan on customer c  (cost=0.00..413.75 rows=176 width=16) (actual time=0.007..1.189 rows=176 loops=1)
+              Filter: (territoryid = 5)
+              Rows Removed by Filter: 19644
+Planning Time: 0.179 ms
+Execution Time: 6.268 ms
