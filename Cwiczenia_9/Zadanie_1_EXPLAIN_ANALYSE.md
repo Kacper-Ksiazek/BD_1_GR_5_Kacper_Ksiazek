@@ -37,3 +37,14 @@ Odnosniki:
 
 1. [Bez indexow](./Zadanie_1_wyniki_explain_analyse/ExplainAnalyzeResult_without_indexes.csv)
 2. [Z indexami](./Zadanie_1_wyniki_explain_analyse/ExplainAnalyzeResult_with_indexes.csv)
+
+### 5. Porownanie wynikow
+
+| lp  | Roznica                  | Bez indexow              | Z indexami         |
+| --- | ------------------------ | ------------------------ | ------------------ |
+| 1   | Planowany czas           | 0.179 ms                 | 2.685 ms           |
+| 2   | Czas wykonania           | 6.268 ms                 | 4.865 ms           |
+| 3   | Ilosc linijek logow      | 10                       | 12                 |
+| 4   | Struktura danych         | Sequence                 | Bitmap Heap        |
+| 5   | Metoda segregacji danych | filtracja                | ekstrakcja         |
+| 6   | Wynik segregacji         | skasowano 19 644 rekordy | wybrano 24 rekordy |
